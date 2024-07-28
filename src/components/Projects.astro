@@ -19,10 +19,15 @@ import JavaScript from "./icons/JavaScript.astro";
 import Kotlin from "./icons/Kotlin.astro";
 import Firebase from "./icons/Firebase.astro";
 import Gmail from "./icons/Gmail.astro";
+import Clerk from "./icons/Clerk.astro";
+import TypeScript from "./icons/TypeScript.astro";
+import Vercel from "./icons/Vercel.astro";
+
 // ICONS END
 
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
+import NextJS from "./icons/NextJS.astro";
 
 const TAGS = {
     NODE: {
@@ -32,7 +37,7 @@ const TAGS = {
     },
     MYSQL: {
         name: "MySQL",
-        class: "bg-blue-400 text-white",
+        class: "bg-blue-700 text-white",
         icon: MySQL,
     },
     REACT: {
@@ -77,7 +82,7 @@ const TAGS = {
     },
     JAVA: {
         name: "Java",
-        class: "bg-orange-900 text-white",
+        class: "bg-red-900 text-white",
         icon: Java,
     },
     SPRINGFRAMEWORK: {
@@ -102,22 +107,59 @@ const TAGS = {
     },
     KOTLIN: {
         name: "Kotlin",
-        class: "bg-pink-400 text-white",
+        class: "bg-pink-800 text-white",
         icon: Kotlin,
     },
     FIREBASE: {
         name: "Firebase",
-        class: "bg-yellow-600 text-white",
+        class: "bg-yellow-900 text-white",
         icon: Firebase,
     },
     GMAIL: {
         name: "Gmail",
-        class: "bg-red-500 text-white",
+        class: "bg-red-900 text-white",
         icon: Gmail,
+    },
+    NEXTJS: {
+        name: "NextJS",
+        class: "bg-black text-white",
+        icon: NextJS,
+    },
+    CLERK: {
+        name: "Clerk",
+        class: "bg-black text-white",
+        icon: Clerk,
+    },
+    TYPESCRIPT: {
+        name: "TypeScript",
+        class: "bg-blue-900 text-white",
+        icon: TypeScript,
+    },
+    VERCEL: {
+        name: "Vercel",
+        class: "bg-black text-white",
+        icon: Vercel,
     },
 };
 
 const PROJECTS = [
+    {
+        title: "Gamehub - A platform where you can stream like in twitch",
+        description:
+            "Live streaming platform focused on video games and related content, where users can watch and broadcast in real time, interact with other viewers and creators, and follow their favorite streamers.",
+        link: "https://gamehubzone.vercel.app/",
+        github: "https://github.com/BrayanZv243/twitch-clone-gamehub",
+        image: "/projects/gamehub2.webp",
+        tags: [
+            TAGS.NEXTJS,
+            TAGS.CLERK,
+            TAGS.VERCEL,
+            TAGS.REACT,
+            TAGS.TYPESCRIPT,
+            TAGS.TAILWIND,
+            TAGS.FIREBASE,
+        ],
+    },
     {
         title: "TODOS - Beautiful app for creating things to do",
         description:
