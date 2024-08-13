@@ -1,8 +1,9 @@
 ---
 import ProjectItem from './ProjectItem.astro';
 import { TAGS, type TagProps } from './Tag/Tags.astro';
+import { countFiles } from '@/utils/getNumFiles';
 
-export interface ProjectProps {
+interface ProjectProps {
     title: string;
     images: string[];
     description: string;
@@ -11,6 +12,15 @@ export interface ProjectProps {
     tags?: TagProps[];
 }
 
+const pathImages = '/projects';
+const pathRoot = 'public/projects';
+
+const numFilesGamehub = countFiles(`${pathRoot}/Gamehub`);
+const numFilesPrestodo = countFiles(`${pathRoot}/Prestodo`);
+const numFilesTodos = countFiles(`${pathRoot}/Todos`);
+const numFilesMovieCatalog = countFiles(`${pathRoot}/MoviesCatalog`);
+const numFilesProfeco = countFiles(`${pathRoot}/Profeco`);
+
 const PROJECTS: ProjectProps[] = [
     {
         title: 'Gamehub - A platform where you can stream like on twitch',
@@ -18,15 +28,10 @@ const PROJECTS: ProjectProps[] = [
             'Live streaming platform focused on video games and related content, where users can watch and broadcast in real time, interact with other viewers and creators, and follow their favorite streamers.',
         link: 'https://gamehubzone.vercel.app/',
         github: 'https://github.com/BrayanZv243/twitch-clone-gamehub',
-        images: [
-            '/projects/gamehub0.jpg',
-            '/projects/gamehub1.jpg',
-            '/projects/gamehub2.jpg',
-            '/projects/gamehub3.jpg',
-            '/projects/gamehub4.jpg',
-            '/projects/gamehub5.jpg',
-            '/projects/gamehub6.jpg',
-        ],
+        images: [...Array(await numFilesGamehub)].map(
+            (_, i) => `${pathImages}/Gamehub/gamehub${i}.jpg`
+        ),
+
         tags: [
             TAGS.NEXTJS,
             TAGS.CLERK,
@@ -38,15 +43,22 @@ const PROJECTS: ProjectProps[] = [
         ],
     },
     {
+        title: 'Messenger - ¡Send a Message! or maybe a video, or image, or whatever.',
+        description:
+            'Messaging app that allows users to send instant text messages and share multimedia content like photos and videos. Integrates seamlessly with Google and Github for connecting with friends and sign up.',
+        images: [],
+        link: '',
+        github: '',
+        tags: [],
+    },
+    {
         title: 'Prestodo Mobile application to lend items',
         description:
             'Mobile application that allows users to lend their items for a small price to other people.',
         github: 'https://github.com/NallelyRAM/Prestamos_Faciles',
-        images: [
-            '/projects/prestodo.jpg',
-            '/projects/prestodo1.jpg',
-            '/projects/prestodo3.jpg',
-        ],
+        images: [...Array(await numFilesPrestodo)].map(
+            (_, i) => `${pathImages}/Prestodo/prestodo${i}.jpg`
+        ),
         tags: [TAGS.KOTLIN, TAGS.FIREBASE, TAGS.GMAIL],
     },
     {
@@ -55,7 +67,9 @@ const PROJECTS: ProjectProps[] = [
             'Simple web app where you can manage the things you have to do, from saving notes to cleaning those you no longer need, as well as filtering them by active ones.',
         link: 'https://my-todo-vite-react.netlify.app/',
         github: 'https://github.com/BrayanZv243/Notes-TODO',
-        images: ['/projects/todos.jpg', '/projects/todos2.jpg'],
+        images: [...Array(await numFilesTodos)].map(
+            (_, i) => `${pathImages}/Todos/todos${i}.jpg`
+        ),
         tags: [
             TAGS.REACT,
             TAGS.VITEJS,
@@ -70,7 +84,9 @@ const PROJECTS: ProjectProps[] = [
         description:
             'Catalog of movies ranked by stars where you can rent, buy and add to favorites',
         github: 'https://github.com/BrayanZv243/PeliculasReact',
-        images: ['/projects/movies.jpg', '/projects/movies2.jpg'],
+        images: [...Array(await numFilesMovieCatalog)].map(
+            (_, i) => `${pathImages}/MoviesCatalog/movies${i}.jpg`
+        ),
         tags: [
             TAGS.CSHARP,
             TAGS.NETCORE,
@@ -85,7 +101,9 @@ const PROJECTS: ProjectProps[] = [
         description:
             'Profeco catalog to keep track of product prices and customer comments.',
         github: 'https://github.com/WhitheSpaceJJ/Distribuidos-Profeco',
-        images: ['/projects/profeco.jpg'],
+        images: [...Array(await numFilesProfeco)].map(
+            (_, i) => `${pathImages}/Profeco/profeco${i}.jpg`
+        ),
         tags: [
             TAGS.JAVA,
             TAGS.SPRINGFRAMEWORK,
