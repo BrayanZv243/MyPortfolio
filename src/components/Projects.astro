@@ -1,157 +1,31 @@
 ---
-// ICONS
-import GitHub from "./icons/GitHub.astro";
-import MySQL from "./icons/MySQL.astro";
-import NodeJS from "./icons/NodeJS.astro";
-import React from "./icons/React.astro";
-import ExpressJS from "./icons/ExpressJS.astro";
-import Tailwind from "./icons/Tailwind.astro";
-import ViteJS from "./icons/ViteJS.astro";
-import CSharp from "./icons/CSharp.astro";
-import SQLServer from "./icons/SQLServer.astro";
-import MaterialUI from "./icons/MaterialUI.astro";
-import NETCore from "./icons/NETCore.astro";
-import Java from "./icons/Java.astro";
-import SpringFramework from "./icons/SpringFramework.astro";
-import Docker from "./icons/Docker.astro";
-import Bootstrap from "./icons/Bootstrap.astro";
-import JavaScript from "./icons/JavaScript.astro";
-import Kotlin from "./icons/Kotlin.astro";
-import Firebase from "./icons/Firebase.astro";
-import Gmail from "./icons/Gmail.astro";
-import Clerk from "./icons/Clerk.astro";
-import TypeScript from "./icons/TypeScript.astro";
-import Vercel from "./icons/Vercel.astro";
+import ProjectItem from './ProjectItem.astro';
+import { TAGS, type TagProps } from './Tag/Tags.astro';
 
-// ICONS END
+export interface ProjectProps {
+    title: string;
+    images: string[];
+    description: string;
+    link?: string;
+    github?: string;
+    tags?: TagProps[];
+}
 
-import Link from "./icons/Link.astro";
-import LinkButton from "./LinkButton.astro";
-import NextJS from "./icons/NextJS.astro";
-import { imageConfig } from "astro:assets";
-
-const TAGS = {
-    NODE: {
-        name: "Node.js",
-        class: "bg-green-900 text-white",
-        icon: NodeJS,
-    },
-    MYSQL: {
-        name: "MySQL",
-        class: "bg-blue-700 text-white",
-        icon: MySQL,
-    },
-    REACT: {
-        name: "React",
-        class: "bg-blue-900 text-white",
-        icon: React,
-    },
-    TAILWIND: {
-        name: "Tailwind CSS",
-        class: "bg-[#003159] text-white",
-        icon: Tailwind,
-    },
-    EXPRESSJS: {
-        name: "Express.js",
-        class: "bg-black text-white",
-        icon: ExpressJS,
-    },
-    VITEJS: {
-        name: "Vite.js",
-        class: "bg-orange-500 text-white",
-        icon: ViteJS,
-    },
-    CSHARP: {
-        name: "C#",
-        class: "bg-purple-800 text-white",
-        icon: CSharp,
-    },
-    SQLSERVER: {
-        name: "SQL Server",
-        class: "bg-red-900 text-white",
-        icon: SQLServer,
-    },
-    MATERIALUI: {
-        name: "Material UI",
-        class: "bg-blue-800 text-white",
-        icon: MaterialUI,
-    },
-    NETCORE: {
-        name: ".NET Core",
-        class: "bg-purple-900 text-white",
-        icon: NETCore,
-    },
-    JAVA: {
-        name: "Java",
-        class: "bg-red-900 text-white",
-        icon: Java,
-    },
-    SPRINGFRAMEWORK: {
-        name: "Spring Boot",
-        class: "bg-green-900 text-white",
-        icon: SpringFramework,
-    },
-    BOOTSTRAP: {
-        name: "Bootstrap",
-        class: "bg-purple-500 text-white",
-        icon: Bootstrap,
-    },
-    JAVASCRIPT: {
-        name: "JavaScript",
-        class: "bg-yellow-700 text-white",
-        icon: JavaScript,
-    },
-    DOCKER: {
-        name: "Docker",
-        class: "bg-blue-900 text-white",
-        icon: Docker,
-    },
-    KOTLIN: {
-        name: "Kotlin",
-        class: "bg-pink-800 text-white",
-        icon: Kotlin,
-    },
-    FIREBASE: {
-        name: "Firebase",
-        class: "bg-yellow-900 text-white",
-        icon: Firebase,
-    },
-    GMAIL: {
-        name: "Gmail",
-        class: "bg-red-900 text-white",
-        icon: Gmail,
-    },
-    NEXTJS: {
-        name: "NextJS",
-        class: "bg-black text-white",
-        icon: NextJS,
-    },
-    CLERK: {
-        name: "Clerk",
-        class: "bg-black text-white",
-        icon: Clerk,
-    },
-    TYPESCRIPT: {
-        name: "TypeScript",
-        class: "bg-blue-900 text-white",
-        icon: TypeScript,
-    },
-    VERCEL: {
-        name: "Vercel",
-        class: "bg-black text-white",
-        icon: Vercel,
-    },
-};
-
-const PROJECTS = [
+const PROJECTS: ProjectProps[] = [
     {
-        title: "Gamehub - A platform where you can stream like on twitch",
+        title: 'Gamehub - A platform where you can stream like on twitch',
         description:
-            "Live streaming platform focused on video games and related content, where users can watch and broadcast in real time, interact with other viewers and creators, and follow their favorite streamers.",
-        link: "https://gamehubzone.vercel.app/",
-        github: "https://github.com/BrayanZv243/twitch-clone-gamehub",
-        images: ["/projects/gamehub0.jpg","/projects/gamehub1.jpg","/projects/gamehub2.jpg","/projects/gamehub3.jpg",
-            "/projects/gamehub4.jpg","/projects/gamehub5.jpg","/projects/gamehub6.jpg"
+            'Live streaming platform focused on video games and related content, where users can watch and broadcast in real time, interact with other viewers and creators, and follow their favorite streamers.',
+        link: 'https://gamehubzone.vercel.app/',
+        github: 'https://github.com/BrayanZv243/twitch-clone-gamehub',
+        images: [
+            '/projects/gamehub0.jpg',
+            '/projects/gamehub1.jpg',
+            '/projects/gamehub2.jpg',
+            '/projects/gamehub3.jpg',
+            '/projects/gamehub4.jpg',
+            '/projects/gamehub5.jpg',
+            '/projects/gamehub6.jpg',
         ],
         tags: [
             TAGS.NEXTJS,
@@ -164,20 +38,24 @@ const PROJECTS = [
         ],
     },
     {
-        title: "Prestodo Mobile application to lend items",
+        title: 'Prestodo Mobile application to lend items',
         description:
-            "Mobile application that allows users to lend their items for a small price to other people.",
-        github: "https://github.com/NallelyRAM/Prestamos_Faciles",
-        images: ["/projects/prestodo.jpg","/projects/prestodo1.jpg", "/projects/prestodo3.jpg"],
+            'Mobile application that allows users to lend their items for a small price to other people.',
+        github: 'https://github.com/NallelyRAM/Prestamos_Faciles',
+        images: [
+            '/projects/prestodo.jpg',
+            '/projects/prestodo1.jpg',
+            '/projects/prestodo3.jpg',
+        ],
         tags: [TAGS.KOTLIN, TAGS.FIREBASE, TAGS.GMAIL],
     },
     {
-        title: "TODOS - Beautiful app for creating things to do",
+        title: 'TODOS - Beautiful app for creating things to do',
         description:
-            "Simple web app where you can manage the things you have to do, from saving notes to cleaning those you no longer need, as well as filtering them by active ones.",
-        link: "https://my-todo-vite-react.netlify.app/",
-        github: "https://github.com/BrayanZv243/Notes-TODO",
-        images: ["/projects/todos.jpg","/projects/todos2.jpg"],
+            'Simple web app where you can manage the things you have to do, from saving notes to cleaning those you no longer need, as well as filtering them by active ones.',
+        link: 'https://my-todo-vite-react.netlify.app/',
+        github: 'https://github.com/BrayanZv243/Notes-TODO',
+        images: ['/projects/todos.jpg', '/projects/todos2.jpg'],
         tags: [
             TAGS.REACT,
             TAGS.VITEJS,
@@ -188,11 +66,11 @@ const PROJECTS = [
         ],
     },
     {
-        title: "Movie Catalog",
+        title: 'Movie Catalog',
         description:
-            "Catalog of movies ranked by stars where you can rent, buy and add to favorites",
-        github: "https://github.com/BrayanZv243/PeliculasReact",
-        images: ["/projects/movies.jpg", "/projects/movies2.jpg"],
+            'Catalog of movies ranked by stars where you can rent, buy and add to favorites',
+        github: 'https://github.com/BrayanZv243/PeliculasReact',
+        images: ['/projects/movies.jpg', '/projects/movies2.jpg'],
         tags: [
             TAGS.CSHARP,
             TAGS.NETCORE,
@@ -203,11 +81,11 @@ const PROJECTS = [
     },
 
     {
-        title: "Profeco Products",
+        title: 'Profeco Products',
         description:
-            "Profeco catalog to keep track of product prices and customer comments.",
-        github: "https://github.com/WhitheSpaceJJ/Distribuidos-Profeco",
-        images: ["/projects/profeco.jpg"],
+            'Profeco catalog to keep track of product prices and customer comments.',
+        github: 'https://github.com/WhitheSpaceJJ/Distribuidos-Profeco',
+        images: ['/projects/profeco.jpg'],
         tags: [
             TAGS.JAVA,
             TAGS.SPRINGFRAMEWORK,
@@ -217,147 +95,24 @@ const PROJECTS = [
             TAGS.DOCKER,
         ],
     },
-    
 ];
 ---
 
-<div class="flex flex-col gap-y-16">
-    {
-        PROJECTS.map(({ images, title, description, tags, link, github }) => (
-            <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-                <div id="default-carousel" class="relative sm:h-auto w-full" data-carousel="slide">
-                <!-- Carousel wrapper -->
-                    <div class="relative w-full h-[400px] sm:h-96 md:h-96 overflow-hidden rounded-lg">
-                    <!-- Items -->
-                    {images.map((image, index) => (
-                        <div
-                            class={`w-full h-full duration-700 ease-in-out ${index === 0 ? 'block' : 'hidden'} sm:block md:block`}
-                            data-carousel-item
-                        >
-                            <img
-                                alt="img-project"
-                                class="w-full h-full"
-                                loading="lazy"
-                                src={image}
-                            />
-                        </div>
-                    ))}
-                </div>
-
-
-    <!-- Slider indicators -->
-    <div
-        class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
-    >
-        {images.length > 1 && images.map((index) => (
-            <button
-            type="button"
-            class="w-5 h-5 rounded-full"
-            aria-current="true"
-            aria-label={`Slide ${index}`}
-            data-carousel-slide-to={index} />
-        ))}
-
+<>
+    <div class="flex flex-col gap-y-16">
+        {
+            PROJECTS.map(
+                ({ images, title, description, tags, link, github }) => (
+                    <ProjectItem
+                        images={images}
+                        title={title}
+                        description={description}
+                        tags={tags}
+                        link={link}
+                        github={github}
+                    />
+                )
+            )
+        }
     </div>
-    <!-- Slider controls -->
-    {images.length > 1 && (
-        <button
-        type="button"
-        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-prev
-    >
-            <span
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
-            >
-                <svg
-                    class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 6 10"
-                >
-                    <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 1 1 5l4 4"></path>
-                </svg>
-                <span class="sr-only">Previous</span>
-            </span>
-    </button>
-    <button
-        type="button"
-        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-next
-    >
-            <span
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
-            >
-                <svg
-                    class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 6 10"
-                >
-                    <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="m1 9 4-4-4-4"></path>
-                </svg>
-                <span class="sr-only">Next</span>
-            </span>
-    </button>
-    )}
-</div>
-                <div class="w-full md:w-[600px] md:max-w-lg">
-                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 text-center sm:text-left">
-                        {title}
-                    </h3>
-                    <div class="flex flex-wrap mt-2">
-                        <ul class="flex flex-wrap mb-2 gap-x-2 gap-y-2 items-end justify-center sm:justify-start">
-                            {tags.map((tag) => (
-                                <li>
-                                    <span
-                                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
-                                    >
-                                        <tag.icon class="w-4 h-4" />
-                                        {tag.name}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
-
-                        <div class="mt-2 text-gray-700 dark:text-gray-400">
-                            <p class="text-center sm:text-left">
-                                {description}
-                            </p>
-                            
-                        </div>
-                        <div class="w-full">
-                            <footer class="flex items-end justify-center sm:justify-start mt-4 gap-x-4">
-                                {github && (
-                                    <LinkButton href={github}>
-                                        <GitHub class="size-6" />
-                                        Code
-                                    </LinkButton>
-                                )}
-                                {link && (
-                                    <LinkButton href={link}>
-                                        <Link class="size-4" />
-                                        Preview
-                                    </LinkButton>
-                                )}
-                            </footer>
-                        </div>
-
-
-                    </div>
-                </div>
-            </article>
-        ))
-    }
-</div>
+</>

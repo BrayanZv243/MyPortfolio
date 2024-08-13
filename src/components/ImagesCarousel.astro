@@ -1,0 +1,114 @@
+---
+interface ImagesCarouselProps {
+    images: string[];
+}
+
+const { images } = Astro.props as ImagesCarouselProps;
+---
+
+<div id="default-carousel" class="relative w-full" data-carousel="slide">
+    {/* Carousel wrapper */}
+    <div
+        class="bg-gray-200 shadow-gray-300 relative w-full h-96 overflow-hidden rounded-lg dark:bg-sky-900/5 shadow-xl dark:shadow-sky-400/30 hover:scale-125 transition duration-300"
+    >
+        {/* Items */}
+        {
+            images.map((image) => (
+                <div
+                    class={`w-full h-full flex items-center justify-center text-center duration-700 ease-in-out`}
+                    data-carousel-item
+                >
+                    <img
+                        alt="img-project"
+                        class="max-w-full max-h-full "
+                        loading="lazy"
+                        src={image}
+                    />
+                </div>
+            ))
+        }
+    </div>
+
+    {/* Slider indicators */}
+    <div class="flex justify-center">
+        <div
+            class="z-30 mt-4 flex justify-center space-x-3 rtl:space-x-reverse bg-sky-100/50 shadow-lg dark:bg-sky-900/5 rounded-lg w-fit"
+        >
+            {
+                images.length > 1 &&
+                    images.map((index) => (
+                        <div class="w-5 h-5 rounded-full bg-gray-950/60 dark:bg-white/35 transition-opacity duration-300 ">
+                            <button
+                                type="button"
+                                class="w-5 h-5 rounded-full"
+                                aria-current="true"
+                                aria-label={`Slide ${index}`}
+                                data-carousel-slide-to={index}
+                            />
+                        </div>
+                    ))
+            }
+        </div>
+    </div>
+
+    {/* Slider controls */}
+    {
+        images.length > 1 && (
+            <>
+                <div class="mt-4">
+                    <button
+                        type="button"
+                        class="absolute top-0 start-0 z-30 flex items-end justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        data-carousel-prev
+                    >
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 dark:bg-gray-800/30 group-hover:bg-sky-800/30 transition duration-300 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-sky-500 dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                            <svg
+                                class="w-4 h-4 text-sky-900/90 dark:text-white/80 rtl:rotate-180"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 6 10"
+                            >
+                                <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 1 1 5l4 4"
+                                />
+                            </svg>
+                            <span class="sr-only">Previous</span>
+                        </span>
+                    </button>
+                </div>
+
+                <div class="mt-4">
+                    <button
+                        type="button"
+                        class="absolute top-0 end-0 z-30 flex items-end justify-center h-full px-4 cursor-pointer group focus:outline-none "
+                        data-carousel-next
+                    >
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 dark:bg-gray-800/30 group-hover:bg-sky-800/30 transition duration-300 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-sky-500 dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                            <svg
+                                class="w-4 h-4 text-sky-900 dark:text-white/80 rtl:rotate-180"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 6 10"
+                            >
+                                <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="m1 9 4-4-4-4"
+                                />
+                            </svg>
+                            <span class="sr-only">Next</span>
+                        </span>
+                    </button>
+                </div>
+            </>
+        )
+    }
+</div>

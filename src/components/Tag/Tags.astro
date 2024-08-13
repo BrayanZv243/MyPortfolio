@@ -1,0 +1,149 @@
+---
+// ICONS
+import MySQL from '../icons/MySQL.astro';
+import NodeJS from '../icons/NodeJS.astro';
+import React from '../icons/React.astro';
+import ExpressJS from '../icons/ExpressJS.astro';
+import Tailwind from '../icons/Tailwind.astro';
+import ViteJS from '../icons/ViteJS.astro';
+import CSharp from '../icons/CSharp.astro';
+import SQLServer from '../icons/SQLServer.astro';
+import MaterialUI from '../icons/MaterialUI.astro';
+import NETCore from '../icons/NETCore.astro';
+import Java from '../icons/Java.astro';
+import SpringFramework from '../icons/SpringFramework.astro';
+import Docker from '../icons/Docker.astro';
+import Bootstrap from '../icons/Bootstrap.astro';
+import JavaScript from '../icons/JavaScript.astro';
+import Kotlin from '../icons/Kotlin.astro';
+import Firebase from '../icons/Firebase.astro';
+import Gmail from '../icons/Gmail.astro';
+import Clerk from '../icons/Clerk.astro';
+import TypeScript from '../icons/TypeScript.astro';
+import Vercel from '../icons/Vercel.astro';
+import NextJS from '../icons/NextJS.astro';
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+
+export interface TagProps {
+    name: string;
+    className: string;
+    Icon: AstroComponentFactory;
+}
+
+type Tags = {
+    [key: string]: TagProps;
+};
+// ICONS END
+export const TAGS: Tags = {
+    NODE: {
+        name: 'Node.js',
+        className: 'bg-green-900 text-white',
+        Icon: NodeJS,
+    },
+    MYSQL: {
+        name: 'MySQL',
+        className: 'bg-blue-700 text-white',
+        Icon: MySQL,
+    },
+    REACT: {
+        name: 'React',
+        className: 'bg-blue-900 text-white',
+        Icon: React,
+    },
+    TAILWIND: {
+        name: 'Tailwind CSS',
+        className: 'bg-[#003159] text-white',
+        Icon: Tailwind,
+    },
+    EXPRESSJS: {
+        name: 'Express.js',
+        className: 'bg-black text-white',
+        Icon: ExpressJS,
+    },
+    VITEJS: {
+        name: 'Vite.js',
+        className: 'bg-orange-500 text-white',
+        Icon: ViteJS,
+    },
+    CSHARP: {
+        name: 'C#',
+        className: 'bg-purple-800 text-white',
+        Icon: CSharp,
+    },
+    SQLSERVER: {
+        name: 'SQL Server',
+        className: 'bg-red-900 text-white',
+        Icon: SQLServer,
+    },
+    MATERIALUI: {
+        name: 'Material UI',
+        className: 'bg-blue-800 text-white',
+        Icon: MaterialUI,
+    },
+    NETCORE: {
+        name: '.NET Core',
+        className: 'bg-purple-900 text-white',
+        Icon: NETCore,
+    },
+    JAVA: {
+        name: 'Java',
+        className: 'bg-red-900 text-white',
+        Icon: Java,
+    },
+    SPRINGFRAMEWORK: {
+        name: 'Spring Boot',
+        className: 'bg-green-900 text-white',
+        Icon: SpringFramework,
+    },
+    BOOTSTRAP: {
+        name: 'Bootstrap',
+        className: 'bg-purple-500 text-white',
+        Icon: Bootstrap,
+    },
+    JAVASCRIPT: {
+        name: 'JavaScript',
+        className: 'bg-yellow-700 text-white',
+        Icon: JavaScript,
+    },
+    DOCKER: {
+        name: 'Docker',
+        className: 'bg-blue-900 text-white',
+        Icon: Docker,
+    },
+    KOTLIN: {
+        name: 'Kotlin',
+        className: 'bg-pink-800 text-white',
+        Icon: Kotlin,
+    },
+    FIREBASE: {
+        name: 'Firebase',
+        className: 'bg-yellow-900 text-white',
+        Icon: Firebase,
+    },
+    GMAIL: {
+        name: 'Gmail',
+        className: 'bg-red-900 text-white',
+        Icon: Gmail,
+    },
+    NEXTJS: {
+        name: 'NextJS',
+        className: 'bg-black text-white',
+        Icon: NextJS,
+    },
+    CLERK: {
+        name: 'Clerk',
+        className: 'bg-black text-white',
+        Icon: Clerk,
+    },
+    TYPESCRIPT: {
+        name: 'TypeScript',
+        className: 'bg-blue-900 text-white',
+        Icon: TypeScript,
+    },
+    VERCEL: {
+        name: 'Vercel',
+        className: 'bg-black text-white',
+        Icon: Vercel,
+    },
+};
+---
