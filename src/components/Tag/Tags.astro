@@ -23,6 +23,10 @@ import TypeScript from '../icons/TypeScript.astro';
 import Vercel from '../icons/Vercel.astro';
 import NextJS from '../icons/NextJS.astro';
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+import MongoDB from '../icons/MongoDB.astro';
+import Pusher from '../icons/Pusher.astro';
+import Cloudinary from '../icons/Cloudinary.astro';
+import Prisma from '../icons/Prisma.astro';
 
 export interface TagProps {
     name: string;
@@ -39,6 +43,11 @@ export const TAGS: Tags = {
         name: 'Node.js',
         className: 'bg-green-900 text-white',
         Icon: NodeJS,
+    },
+    MONGODB: {
+        name: 'MongoDB',
+        className: 'bg-green-700 text-white',
+        Icon: MongoDB,
     },
     MYSQL: {
         name: 'MySQL',
@@ -144,6 +153,21 @@ export const TAGS: Tags = {
         name: 'Vercel',
         className: 'bg-black text-white',
         Icon: Vercel,
+    },
+    PUSHER: {
+        name: 'Pusher',
+        className: 'bg-blue-800 text-white',
+        Icon: Pusher,
+    },
+    CLOUDINARY: {
+        name: 'Cloudinary',
+        className: 'bg-yellow-700 text-white',
+        Icon: Cloudinary,
+    },
+    PRISMA: {
+        name: 'Prisma',
+        className: 'bg-gray-800 text-white',
+        Icon: Prisma,
     },
 };
 ---

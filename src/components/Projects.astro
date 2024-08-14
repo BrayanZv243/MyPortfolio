@@ -20,6 +20,7 @@ const numFilesPrestodo = countFiles(`${pathRoot}/Prestodo`);
 const numFilesTodos = countFiles(`${pathRoot}/Todos`);
 const numFilesMovieCatalog = countFiles(`${pathRoot}/MoviesCatalog`);
 const numFilesProfeco = countFiles(`${pathRoot}/Profeco`);
+const numFilesMessenger = countFiles(`${pathRoot}/Messenger`);
 
 const PROJECTS: ProjectProps[] = [
     {
@@ -45,11 +46,23 @@ const PROJECTS: ProjectProps[] = [
     {
         title: 'Messenger - ¡Send a Message! or maybe a video, or image, or whatever.',
         description:
-            'Messaging app that allows users to send instant text messages and share multimedia content like photos and videos. Integrates seamlessly with Google and Github for connecting with friends and sign up.',
-        images: [],
-        link: '',
-        github: '',
-        tags: [],
+            'Messaging app that lets users send instant text messages and share multimedia content like photos and videos. Seamlessly integrates with Google and GitHub for connecting with friends and signing up.',
+        images: [...Array(await numFilesMessenger)].map(
+            (_, i) => `${pathImages}/Messenger/messenger${i}.jpg`
+        ),
+        link: 'https://messenger-clone-brayan-z.vercel.app/',
+        github: 'https://github.com/BrayanZv243/messenger-clone',
+        tags: [
+            TAGS.NEXTJS,
+            TAGS.VERCEL,
+            TAGS.REACT,
+            TAGS.TYPESCRIPT,
+            TAGS.TAILWIND,
+            TAGS.MONGODB,
+            TAGS.PUSHER,
+            TAGS.CLOUDINARY,
+            TAGS.PRISMA,
+        ],
     },
     {
         title: 'Prestodo Mobile application to lend items',
