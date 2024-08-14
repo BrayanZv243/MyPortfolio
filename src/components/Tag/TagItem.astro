@@ -1,11 +1,13 @@
 ---
 import type { TagProps } from './Tags.astro';
 
-const { name, className, Icon } = Astro.props as TagProps;
+const { name, bgColor, Icon } = Astro.props as TagProps;
 ---
 
 <li>
-    <span class={`flex gap-x-2 rounded-full text-xs ${className} py-1 px-2`}>
+    <span
+        class={`flex gap-x-2 rounded-full text-xs ${bgColor} text-white py-1 px-2`}
+    >
         <Icon class="w-4 h-4" />
         {name}
     </span>
