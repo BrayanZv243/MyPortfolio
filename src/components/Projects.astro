@@ -65,16 +65,6 @@ const PROJECTS: ProjectProps[] = [
         ],
     },
     {
-        title: 'Prestodo Mobile application to lend items',
-        description:
-            'Mobile application that allows users to lend their items for a small price to other people.',
-        github: 'https://github.com/NallelyRAM/Prestamos_Faciles',
-        images: [...Array(await numFilesPrestodo)].map(
-            (_, i) => `${pathImages}/Prestodo/prestodo${i}.jpg`
-        ),
-        tags: [TAGS.KOTLIN, TAGS.FIREBASE, TAGS.GMAIL],
-    },
-    {
         title: 'TODOS - Beautiful app for creating things to do',
         description:
             'Simple web app where you can manage the things you have to do, from saving notes to cleaning those you no longer need, as well as filtering them by active ones.',
@@ -92,6 +82,16 @@ const PROJECTS: ProjectProps[] = [
             TAGS.EXPRESSJS,
             TAGS.MYSQL,
         ],
+    },
+    {
+        title: 'Prestodo Mobile application to lend items',
+        description:
+            'Mobile application that allows users to lend their items for a small price to other people.',
+        github: 'https://github.com/NallelyRAM/Prestamos_Faciles',
+        images: [...Array(await numFilesPrestodo)].map(
+            (_, i) => `${pathImages}/Prestodo/prestodo${i}.jpg`
+        ),
+        tags: [TAGS.KOTLIN, TAGS.FIREBASE, TAGS.GMAIL],
     },
     {
         title: 'Movie Catalog',
