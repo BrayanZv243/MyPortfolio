@@ -1,9 +1,12 @@
 ---
-const personalImageAlt = 'Brayan Zavala';
 import Badge from '@/components/Badge.astro';
 import LinkedInIcon from '@/components/icons/LinkedIn.astro';
 import MailIcon from '@/components/icons/Mail.astro';
 import SocialPill from '@/components/SocialPill.astro';
+
+const personalImageAlt = 'Brayan Zavala';
+const STARTED_YEAR = 2020;
+const yearsPassed = new Date().getFullYear() - STARTED_YEAR;
 ---
 
 <div class="max-w-xl">
@@ -19,7 +22,7 @@ import SocialPill from '@/components/SocialPill.astro';
             rel="noopener"
             class="flex items-center transition md:justify-center md:hover:scale-105"
         >
-            <Badge>IT - Trainee</Badge>
+            <Badge>Support Software Engineer</Badge>
         </a>
     </div>
     <h1
@@ -30,7 +33,7 @@ import SocialPill from '@/components/SocialPill.astro';
     <p
         class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
     >
-        +4 Years learning and developing Software. <strong
+        +{yearsPassed} Years learning and developing Software. <strong
             >I am a Software Engineer</strong
         > from Sonora, Mexico 🇲🇽. Proficient in building custom web applications.
     </p>
