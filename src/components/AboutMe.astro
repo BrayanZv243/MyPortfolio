@@ -3,6 +3,23 @@ const personalImageAlt = 'Brayan Zavala';
 
 const ejemplo = {
     descripcion: `
+    LOAD CSV WITH HEADERS FROM "file:///products.csv" As line
+CREATE(:Product {unitPrice: toFloat(line.unitPrice), unitsInStock: toInteger(line.unitsInStock),unitsOnOrder: toInteger(line.unitsOnOrder),reorderLevel: toInteger(line.reorderLevel)}) RETURN COUNT(*);
+
+    LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/customers.csv" as line
+CREATE(:Customer {customerID: line.customerID,companyName:line.companyName,contactName:line.contactName,contactTitle: line.contactTitle,address:line.address, city: line.city,region:line.region,postalCode:line.postalCode,country:line.country,phone: line.phone, fax:line.fax }) RETURN COUNT(*);
+
+
+LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/orders.csv" as line
+CREATE(:Order{orderID:line.orderID,customerID:line.customerID,employeeID:line.employeeID,orderDate:line.orderDate,requiredDate:line.requiredDate,shippedDate:line.shippedDate,shipVia:line.shipVia,freight:line.freight,shipName:line.shipName,shipAddress:line.shipAddress,shipCity:line.shipCity,shipRegion:line.shipRegion,shipPostalCode:line.shipPostalCode,shipCountry:line.shipCountry}) RETURN COUNT(*);
+
+LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/order-details.csv" As line
+CREATE (o)-[:ORDERS {quantity:toInteger(line.quantity)}]->(p)
+
+
+MATCH (cust:Customer)-[:PURCHASED]->(:Order)-[o:ORDERS]->(p:Product) WITH cust as cust, SUM(o.quantity) AS TotalProductsPurchased
+WHERE TotalProductsPurchased > 1000
+SET cust:Top_Customer
     `,
 };
 ---
