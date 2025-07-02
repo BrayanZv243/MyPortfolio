@@ -5,36 +5,19 @@ const ejemplo = {
     d1: `LOAD CSV WITH HEADERS FROM "file:///products.csv" As line
 CREATE(:Product {unitPrice: toFloat(line.unitPrice), unitsInStock: toInteger(line.unitsInStock),unitsOnOrder: toInteger(line.unitsOnOrder),reorderLevel: toInteger(line.reorderLevel)}) RETURN COUNT(*);`,
 
-    d2: `LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/customers.csv" as line
+    d2: `LOAD CSV WITH HEADERS FROM "file:///customers.csv" as line
 CREATE(:Customer {customerID: line.customerID,companyName:line.companyName,contactName:line.contactName,contactTitle: line.contactTitle,address:line.address, city: line.city,region:line.region,postalCode:line.postalCode,country:line.country,phone: line.phone, fax:line.fax }) RETURN COUNT(*);
 
-LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/orders.csv" as line
+LOAD CSV WITH HEADERS FROM "file:///orders.csv" as line
 CREATE(:Order{orderID:line.orderID,customerID:line.customerID,employeeID:line.employeeID,orderDate:line.orderDate,requiredDate:line.requiredDate,shippedDate:line.shippedDate,shipVia:line.shipVia,freight:line.freight,shipName:line.shipName,shipAddress:line.shipAddress,shipCity:line.shipCity,shipRegion:line.shipRegion,shipPostalCode:line.shipPostalCode,shipCountry:line.shipCountry}) RETURN COUNT(*);`,
 
-    d3: `LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/order-details.csv" As line
+    d3: `LOAD CSV WITH HEADERS FROM "file:///order-details.csv" As line
         CREATE (o)-[:ORDERS {quantity:toInteger(line.quantity)}]->(p)`,
 
     d4: `MATCH (cust:Customer)-[:PURCHASED]->(:Order)-[o:ORDERS]->(p:Product) WITH cust as cust, SUM(o.quantity) AS TotalProductsPurchased
 WHERE TotalProductsPurchased > 1000
 SET cust:Top_Customer`,
-    descripcion: `LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/orders.csv" AS line
-CREATE (:Order {
-    orderID: toInteger(line.orderID),
-    customerID: line.customerID,
-    employeeID: toInteger(line.employeeID),
-    orderDate: date(line.orderDate),
-    requiredDate: date(line.requiredDate),
-    shippedDate: CASE WHEN line.shippedDate = "" THEN null ELSE date(line.shippedDate) END,
-    shipVia: toInteger(line.shipVia),
-    freight: toFloat(line.freight),
-    shipName: line.shipName,
-    shipAddress: line.shipAddress,
-    shipCity: line.shipCity,
-    shipRegion: CASE WHEN line.shipRegion = "" THEN null ELSE line.shipRegion END,
-    shipPostalCode: line.shipPostalCode,
-    shipCountry: line.shipCountry
-});
-`,
+    descripcion: ``,
 };
 ---
 
@@ -94,9 +77,6 @@ CREATE (:Order {
             <br />
             {ejemplo.d4}
             <br />
-            <br />
-            <br />
-            {ejemplo.descripcion}
         </p>
     </div>
 
