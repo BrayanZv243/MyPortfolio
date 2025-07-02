@@ -17,7 +17,24 @@ CREATE(:Order{orderID:line.orderID,customerID:line.customerID,employeeID:line.em
     d4: `MATCH (cust:Customer)-[:PURCHASED]->(:Order)-[o:ORDERS]->(p:Product) WITH cust as cust, SUM(o.quantity) AS TotalProductsPurchased
 WHERE TotalProductsPurchased > 1000
 SET cust:Top_Customer`,
-    descripcion: ``,
+    descripcion: `LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/orders.csv" AS line
+CREATE (:Order {
+    orderID: toInteger(line.orderID),
+    customerID: line.customerID,
+    employeeID: toInteger(line.employeeID),
+    orderDate: date(line.orderDate),
+    requiredDate: date(line.requiredDate),
+    shippedDate: CASE WHEN line.shippedDate = "" THEN null ELSE date(line.shippedDate) END,
+    shipVia: toInteger(line.shipVia),
+    freight: toFloat(line.freight),
+    shipName: line.shipName,
+    shipAddress: line.shipAddress,
+    shipCity: line.shipCity,
+    shipRegion: CASE WHEN line.shipRegion = "" THEN null ELSE line.shipRegion END,
+    shipPostalCode: line.shipPostalCode,
+    shipCountry: line.shipCountry
+});
+`,
 };
 ---
 
@@ -79,6 +96,7 @@ SET cust:Top_Customer`,
             <br />
             <br />
             <br />
+            {ejemplo.descripcion}
         </p>
     </div>
 
