@@ -23,8 +23,9 @@ const ejemplo = {
 }'
 `,
     descripcion4: `curl -X DELETE "localhost:9200/solar_system"`,
-    descripcion5: `curl -X PUT "localhost:9200/experimental_index" -H 'Content-Type: application/json' -d'
-{
+    descripcion5: `
+    
+curl -X PUT "localhost:9200/experimental_index" -H "Content-Type: application/json" -d '{
   "mappings": {
     "properties": {
       "value": {
@@ -33,6 +34,7 @@ const ejemplo = {
     }
   }
 }'
+
 
 `,
 };
