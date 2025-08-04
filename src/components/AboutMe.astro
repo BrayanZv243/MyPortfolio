@@ -16,6 +16,9 @@ const ejemplo = {
     }
   }
 }'
+
+# Obtener el mapping para que aparezcan nested, name y size en output
+curl -X GET "localhost:9200/universe/_mapping?pretty"
 `,
     descripcion2: `
     curl -X PUT "localhost:9200/universe/_doc/1" -H "Content-Type: application/json" -d '{
