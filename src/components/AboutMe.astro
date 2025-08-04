@@ -3,13 +3,20 @@ const personalImageAlt = 'Brayan Zavala';
 
 const ejemplo = {
     descripcion1: `
-    curl -X GET "localhost:9200/bank/_search?q=lastname:Tanner&pretty"
+    curl -X GET "localhost:9200/bank/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "match_phrase": {
+      "address": "avenue"
+    }
+  }
+}'
 `,
     descripcion2: `
-    curl -X GET "localhost:9200/bank/_search?pretty" -H 'Content-Type: application/json' -d '{
+    curl -X GET "localhost:9200/bank/_search?pretty" -H "Content-Type: application/json" -d '{
   "query": {
-    "match": {
-      "city": "Mooresburg"
+    "multi_match": {
+      "query": "Allen",
+      "fields": ["address", "firstname"]
     }
   }
 }'
@@ -17,37 +24,40 @@ const ejemplo = {
     descripcion3: `
     curl -X GET "localhost:9200/bank/_search?pretty" -H "Content-Type: application/json" -d '{
   "query": {
-    "term": {
-      "balance": 40540
+    "query_string": {
+      "query": "854 AND place",
+      "default_field": "address"
     }
   }
 }'
 `,
     descripcion4: `
-        curl -X POST "localhost:9200/bank/_search?scroll=1m&pretty" -H 'Content-Type: application/json' -d '{
-  "size": 100,
+        curl -X GET "localhost:9200/bank/_search?pretty" -H "Content-Type: application/json" -d '{
   "query": {
-    "match": {
-      "balance": 14764
+    "range": {
+      "account_number": {
+        "gte": 400,
+        "lte": 450
+      }
     }
   }
 }'
     `,
     descripcion5: `
     
-curl -X GET "localhost:9200/bank/_search?pretty" -H 'Content-Type: application/json' -d '{
+curl -X GET "localhost:9200/bank/_search?pretty" -H "Content-Type: application/json" -d '{
   "query": {
-    "match": {
-      "state": "UT"
+    "bool": {
+      "must": [
+        { "match": { "firstname": "Rose" }},
+        { "match": { "lastname": "Combs" }},
+        { "range": { "balance": { "gt": 20000 }}}
+      ],
+      "must_not": [
+        { "match": { "lastname": "Carlson" }}
+      ]
     }
-  },
-  "sort": [
-    {
-      "age": {
-        "order": "desc"
-      }
-    }
-  ]
+  }
 }'
 
 `,
