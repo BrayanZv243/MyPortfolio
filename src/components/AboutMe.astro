@@ -15,9 +15,9 @@ const ejemplo = {
 }'
 `,
     descripcion3: `
-    curl -X GET "localhost:9200/bank/_search?pretty" -H 'Content-Type: application/json' -d '{
+    curl -X GET "localhost:9200/bank/_search?pretty" -H "Content-Type: application/json" -d '{
   "query": {
-    "match": {
+    "term": {
       "balance": 40540
     }
   }
