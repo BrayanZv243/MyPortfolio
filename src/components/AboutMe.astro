@@ -45,13 +45,17 @@ const ejemplo = {
     `,
     descripcion5: `
     
+#!/bin/bash
+
 curl -X GET "localhost:9200/bank/_search?pretty" -H "Content-Type: application/json" -d '{
   "query": {
     "bool": {
       "must": [
         { "match": { "firstname": "Rose" }},
-        { "match": { "lastname": "Combs" }},
         { "range": { "balance": { "gt": 20000 }}}
+      ],
+      "should": [
+        { "match": { "lastname": "Combs" }}
       ],
       "must_not": [
         { "match": { "lastname": "Carlson" }}
@@ -59,6 +63,7 @@ curl -X GET "localhost:9200/bank/_search?pretty" -H "Content-Type: application/j
     }
   }
 }'
+
 
 `,
 };
