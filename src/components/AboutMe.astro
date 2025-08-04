@@ -2,41 +2,53 @@
 const personalImageAlt = 'Brayan Zavala';
 
 const ejemplo = {
-    descripcion1: `curl -X PUT "localhost:9200/solar_system" -H 'Content-Type: application/json' -d'
-{
-  "settings": {
-    "number_of_shards": 1,
-    "number_of_replicas": 1
-  }
-}'
+    descripcion1: `
+    curl -X GET "localhost:9200/bank/_search?q=lastname:Tanner&pretty"
 `,
-    descripcion2: `curl -X PUT "localhost:9200/solar_system/planets/1" -H 'Content-Type: application/json' -d'
-{
-  "name": "mercury"
-}'
-`,
-    descripcion3: `curl -X POST "localhost:9200/solar_system/planets/1/_update" -H 'Content-Type: application/json' -d'
-{
-  "doc": {
-    "name": "mars"
-  }
-}'
-`,
-    descripcion4: `curl -X DELETE "localhost:9200/solar_system"`,
-    descripcion5: `
-    
-curl -X PUT "localhost:9200/experimental_index" -H "Content-Type: application/json" -d '{
-  "mappings": {
-    "type-name": {
-      "properties": {
-        "value": {
-          "type": "integer"
-        }
-      }
+    descripcion2: `
+    curl -X GET "localhost:9200/bank/_search?pretty" -H 'Content-Type: application/json' -d '{
+  "query": {
+    "match": {
+      "city": "Mooresburg"
     }
   }
 }'
-
+`,
+    descripcion3: `
+    curl -X GET "localhost:9200/bank/_search?pretty" -H 'Content-Type: application/json' -d '{
+  "query": {
+    "match": {
+      "balance": 40540
+    }
+  }
+}'
+`,
+    descripcion4: `
+        curl -X POST "localhost:9200/bank/_search?scroll=1m&pretty" -H 'Content-Type: application/json' -d '{
+  "size": 100,
+  "query": {
+    "match": {
+      "balance": 14764
+    }
+  }
+}'
+    `,
+    descripcion5: `
+    
+curl -X GET "localhost:9200/bank/_search?pretty" -H 'Content-Type: application/json' -d '{
+  "query": {
+    "match": {
+      "state": "UT"
+    }
+  },
+  "sort": [
+    {
+      "age": {
+        "order": "desc"
+      }
+    }
+  ]
+}'
 
 `,
 };
