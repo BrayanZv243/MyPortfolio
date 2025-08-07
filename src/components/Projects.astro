@@ -19,8 +19,8 @@ const numFilesGamehub = countFiles(`${pathRoot}/Gamehub`);
 const numFilesPrestodo = countFiles(`${pathRoot}/Prestodo`);
 const numFilesTodos = countFiles(`${pathRoot}/Todos`);
 const numFilesMovieCatalog = countFiles(`${pathRoot}/MoviesCatalog`);
-const numFilesProfeco = countFiles(`${pathRoot}/Profeco`);
 const numFilesMessenger = countFiles(`${pathRoot}/Messenger`);
+const numFilesApolo = countFiles(`${pathRoot}/Apolo`);
 
 const PROJECTS: ProjectProps[] = [
     {
@@ -84,6 +84,22 @@ const PROJECTS: ProjectProps[] = [
         ],
     },
     {
+        title: 'Apolo Mobile App',
+        description:
+            'Apolo is a mobile app designed for parents and tutors to stay informed about a students school attendance in real time.',
+        images: [...Array(await numFilesApolo)].map(
+            (_, i) => `${pathImages}/Apolo/apolo${i}.jpg`
+        ),
+        tags: [
+            TAGS.KOTLIN,
+            TAGS.CSHARP,
+            TAGS.SQLSERVER,
+            TAGS.MATERIALUI,
+            TAGS.FIREBASE,
+            TAGS.AZURE,
+        ],
+    },
+    {
         title: 'Prestodo Mobile application to lend items',
         description:
             'Mobile application that allows users to lend their items for a small price to other people.',
@@ -107,24 +123,6 @@ const PROJECTS: ProjectProps[] = [
             TAGS.SQLSERVER,
             TAGS.REACT,
             TAGS.MATERIALUI,
-        ],
-    },
-
-    {
-        title: 'Profeco Products',
-        description:
-            'Profeco catalog to keep track of product prices and customer comments.',
-        github: 'https://github.com/WhitheSpaceJJ/Distribuidos-Profeco',
-        images: [...Array(await numFilesProfeco)].map(
-            (_, i) => `${pathImages}/Profeco/profeco${i}.jpg`
-        ),
-        tags: [
-            TAGS.JAVA,
-            TAGS.SPRINGFRAMEWORK,
-            TAGS.MYSQL,
-            TAGS.BOOTSTRAP,
-            TAGS.JAVASCRIPT,
-            TAGS.DOCKER,
         ],
     },
 ];
